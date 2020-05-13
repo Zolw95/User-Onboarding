@@ -12,7 +12,8 @@ export default function Form() {
         name: "",
         email: "",
         password: "",
-        terms: ""
+        terms: "",
+        checked: false
     }
 
     // State for inputs
@@ -33,7 +34,8 @@ export default function Form() {
     // State for users
     const [users, setUsers] = useState([]);
 
-    const [isLoading, setIsLoading] = useState(false);
+    // // State for Checkbox
+    const [checkbox, setCheckBox] = useState(true);
 
     // Set up FORM SCHEMA for all validation - check if key value is valid
     const formSchema = yup.object().shape({
@@ -50,6 +52,13 @@ export default function Form() {
     }, [formState]);
     //console.log("error state", errors);
     
+
+    // CheckBox
+    // useEffect(() => {
+    //     formSchema.isValid(formState).then(valid => {
+    //         setCheckBox(!valid);
+    //     });
+    // }, [formState])
 
     // Validation for each input
     const validateChange = e => {
@@ -74,7 +83,11 @@ export default function Form() {
         // Send POST request with object
         axios
             .post("https://reqres.in/api/users", formState) // Post Form state object
-            .then(response => setUsers([...users, response.data]))
+            .then(response => 
+                setUsers([...users, response.data]),
+                setFormState(initialFormState),
+                )
+            .catch(err => setServerError("Something went wrong!"))
     }
 
 
@@ -91,6 +104,14 @@ export default function Form() {
         setFormState(newFormData); // Update state with new data
     };
 
+    // Checkbox Function
+
+    // const checkBox = e => {
+    //     const uncheck = {
+    //         ...checkbox,
+    //         [e.target.name]: e.target.type === "checkbox" ? !e.target.checked : null
+    //     }
+    // }
 
     return (
         <div>
