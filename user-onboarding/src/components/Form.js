@@ -45,7 +45,7 @@ export default function Form() {
 
     useEffect(() => {
         formSchema.isValid(formState).then(valid => {
-            setIsButtonDisabled(valid);
+            setIsButtonDisabled(!valid);
         });
     }, [formState]);
     //console.log("error state", errors);
@@ -92,14 +92,6 @@ export default function Form() {
     };
 
 
-    // Handle Users
-
-    // const handleUser = (post) => {
-    //     setUsers([...users, post])
-    // }
-
-    // console.log("setUsers", users);
-
     return (
         <div>
             <form onSubmit={submitForm}>
@@ -142,6 +134,7 @@ export default function Form() {
                     <input 
                         type="checkbox"
                         onChange={inputChange}
+                        name="terms"
                         value={formState.terms}
                     />
                 </label>
