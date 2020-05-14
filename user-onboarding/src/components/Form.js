@@ -3,6 +3,19 @@ import axios from 'axios';
 import * as yup from 'yup';
 import '../Form.css';
 import UsersList from './UsersList';
+import styled from 'styled-components';
+
+/////////////////////////
+/// STYLED COMPONENTS ///
+/////////////////////////
+
+
+
+
+
+/////////////////////////
+///       FORM        ///
+/////////////////////////
 
 export default function Form() {
 

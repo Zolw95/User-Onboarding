@@ -3,6 +3,11 @@ html {
   }
   
   .App {
+    width: 100%;
+    min-height: 100vh;
+    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
     font-family: sans-serif;
     text-align: center;
   }
@@ -10,7 +15,7 @@ html {
   form {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 960px;
     max-width: 300px;
     margin: 0 auto;
   }
