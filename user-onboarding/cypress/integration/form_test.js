@@ -22,7 +22,7 @@ describe("Test our form inputs", function() {
     .type("email@email.com")
     .should("have.value", "email@email.com")
     .type("Email is required")
-    .should("have.length", 1);
+    .should("have.length", 1); 
     cy.get('[data-cy="password"]')
     .type("12345678")
     .should("have.value", "12345678")
