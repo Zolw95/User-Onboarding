@@ -3,25 +3,43 @@ import ReactDom from 'react-dom';
 import Form from './components/Form';
 import './App.css';
 import styled from 'styled-components';
+import img from './images/img.png'
+import UsersList from './components/UsersList';
 
-const MainHeading = styled.h1`
-font-family: Poppins-Bold;
-color: #333333;
-font-size: 24px;
-line-height: center;
-text-align: center;
+/////////////////////////
+/// STYLED COMPONENTS ///
+/////////////////////////
+
+const BackgroundWrap = styled.div`
+background: #fff;
+border-radius: 10px;
+position: fixed;
+top: 50%;
+left: 50%;
+margin-top: -300px;
+margin-left: -600px;
+width: 960px;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+padding: 30px 130px 130px 95px;
 `;
 
-function App() {
+
+/////////////////////////
+///       FORM        ///
+/////////////////////////
+
+function App(props) {
+  console.log("app props", props)
   return (
     <div className="App">
-      <div className="account-wrap">
+      <BackgroundWrap>
         <div className="login-image">
-          <img src="" />
+          <img src={img} />
         </div>
-        <MainHeading>Create an Account</MainHeading>
         <Form />
-      </div>
+      </BackgroundWrap>
     </div>
   );
 }

@@ -22,8 +22,7 @@ html {
 
   
   label {
-    display: flex;
-    flex-direction: column;
+    display: flow-root;
     align-items: flex-start;
     margin: 10px 0;
     font-size: 1.4rem;
@@ -32,6 +31,7 @@ html {
   input,
   select,
   textarea {
+    height: 25px;
     width: 100%;
     margin: 5px 0 0;
     display: block;
@@ -43,6 +43,8 @@ html {
     font-size: 1.4rem;
     letter-spacing: 0.5px;
     background-color: white;
+    background: #e6e6e6;
+    border-radius: 25px;
   }
   select {
     height: 40px;
@@ -56,25 +58,31 @@ html {
   
   input:focus {
     outline: none;
-    border-color: #1ee7e2;
+    border-color: rgba(87,184,70, 0.8);
   }
   
   input:placeholder {
     color: #a8b2b2;
   }
+
+
+  input[type="checkbox"] {
+    margin-left: 15px;
+  }
+
   
   button {
-    width: 150px;
+    height: 45px;
+    width: 100%;
     display: inline-block;
     padding: 8px 11px;
     font-size: 1.2rem;
     text-transform: uppercase;
     border: 0;
-    border-radius: 5px;
+    border-radius: 25px;
     letter-spacing: 2px;
     outline: none;
-    background-color: #4dd0e1;
-    background-image: linear-gradient(to right, #4dd0e1, #1ee7e2);
+    background-color: #57b846;
     color: #fff;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -82,17 +90,17 @@ html {
   
   button:hover {
     background-image: none;
-    background-color: #4dd0e1;
+    background-color: #212529;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
   }
   
-  button:disabled {
+  /* button:disabled {
     background-image: none;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: rgba(0, 0, 0, 0.1);
     cursor: not-allowed;
-  }
+  } */
   
   .error {
     font-size: 1.2rem;
@@ -108,5 +116,9 @@ html {
     width: 15px;
     display: inline-block;
     margin-right: 5px;
+  }
+
+  pre {
+    display: none;
   }
   

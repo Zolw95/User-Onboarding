@@ -3,12 +3,23 @@ import axios from 'axios';
 import * as yup from 'yup';
 import '../Form.css';
 import UsersList from './UsersList';
+import App from '../App'
 import styled from 'styled-components';
 
 /////////////////////////
 /// STYLED COMPONENTS ///
 /////////////////////////
 
+
+const MainHeading = styled.span`
+color: #333333;
+font-weight: 800;
+font-size: 24px;
+line-height: 1.2;
+text-align: center;
+display: block;
+padding-bottom: 25px;
+`;
 
 
 
@@ -127,15 +138,19 @@ export default function Form() {
     // }
 
     return (
-        <div>
+        <div className="create-account-form">
+            <MainHeading>Create Account</MainHeading>
             <form onSubmit={submitForm}>
                 {serverError ? <p className="error">{serverError}</p> : null}
                 <label htmlFor="name">
-                    Name
-                    <input 
+                    {/* Name */}
+                    <input
+                        className="input"
+                        maxlength="20" 
                         id="name"
                         type="text" 
                         name="name"
+                        placeholder="Name"
                         onChange={inputChange}
                         value={formState.name}
                         data-cy="name"
@@ -143,11 +158,14 @@ export default function Form() {
                     {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
                 </label>
                 <label htmlFor="email">
-                    Email
-                    <input 
+                    {/* Email */}
+                    <input
+                        className="input"  
+                        maxlength="25"
                         id="email"
                         type="email" 
                         name="email"
+                        placeholder="Email"
                         onChange={inputChange}
                         value={formState.email}
                         data-cy="email"
@@ -155,11 +173,15 @@ export default function Form() {
                     {errors.email.length > 0 ? <p className="error">{errors.email}</p> : null}
                 </label>
                 <label htmlFor="password">
-                    Password
-                    <input 
+                    {/* Password */}
+                    <input
+                        minLength="8"
+                        maxLength="30"
+                        className="input"  
                         id="password"
                         type="password" 
                         name="password"
+                        placeholder="Password"
                         onChange={inputChange}
                         value={formState.password}
                         data-cy="password"
@@ -177,7 +199,7 @@ export default function Form() {
                 </label>
                 <pre>{JSON.stringify(post, null, 2)}</pre>    
                 <button disabled={isButtonDisabled} type="submit">
-                    Submit
+                    Sign Up
                 </button>
             </form>
             <UsersList users={users} />
